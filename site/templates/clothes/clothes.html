@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'clothes/style.css' %}">
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Clothes</title>
+</head>
+<body>
+{% if clothes_list %}
+    <ul>
+        {% for clothes in clothes_list %}
+            <!--<li><a href="/{{clothes.name}}/">{{clothes.name}}</a></li>-->
+            <li><a href="{% url 'clothes:clothes_detail' clothes.name %}">{{clothes.name}}</a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p> No clothes in the stock</p>
+{% endif %}
+</body>
+</html>

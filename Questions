@@ -1,0 +1,20 @@
+1. How are the urls working in the base.urls file
+
+url(r'^events/', include('events.urls', namespace='events')),
+
+How does it know where is events package or directory, because the events
+are under the apps directory.
+
+2. url(r'^(?P<event_uuid>\w+)/advanced-settings/event-details/$',
+   EventDetailsView.as_view(),
+   name='event_details'),
+
+What does this r'^(?P<event_uuid>\w+) mean/do. (r, ^, ?, P, \w+)
+
+3. BASE_PROJECT_APPS in the base.py class. How does it get the app package
+directly because these apps are under apps folder, not directly under site
+
+4. How do the static files and static_root work. Is this static_root folder and
+files auto generated? How are we deploying them on the server.
+
+5. Is it wise to keep the secret key in the base file?

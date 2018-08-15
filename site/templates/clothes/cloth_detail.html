@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'clothes/style.css' %}">
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cloth Details</title>
+</head>
+<table style="width:50%; background:lightgrey;">
+
+    <tr>
+        <td>Name</td>
+        <td>{{ cloth.name }}</td>
+    </tr>
+    <tr>
+        <td>Size</td>
+        <td>{{ cloth.size }}</td>
+    </tr>
+    <tr>
+        <td>Age Group</td>
+        <td>{{ cloth.age_group }}</td>
+    </tr>
+    <tr>
+        <td>Colour</td>
+        <td>{{ cloth.colour }}</td>
+    </tr>
+    <tr>
+        <td>Price</td>
+        <td>{{ cloth.price }}</td>
+    </tr>
+    <tr>
+        <td>Brand Name</td>
+        <td>{{ cloth.brand_name }}</td>
+    </tr>
+    <tr>
+        <td>Season</td>
+        <td>{{ cloth.season }}</td>
+    </tr>
+    <tr>
+        <td>Category</td>
+        <td>{{ cloth.category }}</td>
+    </tr>
+
+</table>
+<body>
+{% if cloth %}
+
+{% else %}
+    <p> Cloth details not found </p>
+{% endif %}
+</body>
+</html>
