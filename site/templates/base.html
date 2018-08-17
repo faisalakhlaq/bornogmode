@@ -1,0 +1,19 @@
+{% load staticfiles %}
+{% load i18n %}
+
+<!DOCTYPE html>
+<html lang="en">
+<!--{% load static %}-->
+<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+<head>
+    <meta charset="UTF-8">
+    <title>Born Og Mode</title>
+</head>
+<body>
+    <h1>{% trans "Welcome to Children & Fashion!"%}</h1>
+    <div class="container">
+        {% block content %}
+        {% endblock content %}
+    </div>
+</body>
+</html>

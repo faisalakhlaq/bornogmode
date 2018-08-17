@@ -1,0 +1,11 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+    Faisal Akhlaq -- Developer -- Faisal.Akhlaq
+
+# THANKS
+    Thanks to all
+
+# TECHNOLOGY COLOPHON
+    Django

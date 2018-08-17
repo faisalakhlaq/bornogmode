@@ -1,0 +1,16 @@
+/* Show it's not fixed to the top */
+body {
+  min-height: 35rem;
+}
+
+.navbar-expand-md{
+background-color: #1e78d2 !important;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: white;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: #999;
+}

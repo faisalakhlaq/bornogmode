@@ -1,0 +1,62 @@
+{% extends "home_base.html" %}
+{% load i18n %}
+
+{% block jumbotron %}
+
+<style>
+{% block style %}
+.navbar-expand-md{
+    margin-bottom: 0px !important;
+}
+.jumbotron {
+    background-color : #1e78d2 !important;
+    color:white !important;
+}
+{% endblock %}
+</style>
+
+<div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <h1>Welcome</h1>
+                <p class="lead">
+                    This example is a quick exercise to illustrate how the
+                    top-aligned navbar works. As you scroll, this navbar remains in its
+                    original position and moves with the rest of the page.
+                </p>
+                <p>
+                    <a class="btn btn-lg btn-primary" href="" role="button">Contact us &raquo;</a>
+                </p>
+            </div>
+            <div class="col-sm-6">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/Ue0wC4u3Yy0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+
+    <div class="col-sm-3" >
+        <form method="POST" action="">{% csrf_token %}
+            {{ form.as_p}}
+            <input class="btn btn-primary" type="submit" value="Contact us"/>
+        </form>
+    </div>
+    <div class="col-sm-3">
+        <p class="lead"> Home </p>
+    </div>
+    <div class="col-sm-3">
+        <p class="lead"> Pages </p>
+    </div>
+    <div class="col-sm-3">
+        <p class="lead"> Clothes </p>
+    </div>
+</div>
+
+{% endblock %}

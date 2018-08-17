@@ -1,6 +1,12 @@
+{% extends "home_base.html" %}
+{% load i18n %}
+{% load staticfiles %}
+
+{% block content %}
+
 <!DOCTYPE html>
 
-{% load static %}
+<!--{% load static %}-->
 <link rel="stylesheet" type="text/css" href="{% static 'clothes/style.css' %}">
 
 <html lang="en">
@@ -21,3 +27,4 @@
 {% endif %}
 </body>
 </html>
+{% endblock %}

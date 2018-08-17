@@ -8,7 +8,8 @@ from .models import Clothes
 
 class IndexView(View):
     def get(self, request, *args, **kwargs):
-        return HttpResponse("Hello, world. You're at the clothing index.")
+        return render(request, 'pages/index.html', {})
+        # return HttpResponse("Hello, world. You're at the clothing index.")
 
 
 class ClothesView(ListView):

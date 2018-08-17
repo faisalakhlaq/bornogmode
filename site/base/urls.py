@@ -1,27 +1,29 @@
-"""site URL Configuration
+"""site URL Configuration"""
 
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/2.1/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
-
-from django.conf.urls import include, url
-from django.contrib import admin; admin.autodiscover()
-
+from django.conf.urls import include, url, handler404, \
+    handler500, handler403, handler400
+from django.urls import path
+from django.conf import settings
+from django.conf.urls.i18n import i18n_patterns
+from django.conf.urls.static import static
 from django.contrib import admin
 admin.autodiscover()
 
-urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'', include('apps.clothes.urls')),
+from apps.pages.views import ErrorPageView
 
-]
+
+urlpatterns = i18n_patterns(
+    url(r'^admin/', admin.site.urls),
+    url(r'^clothes/', include('apps.clothes.urls')),
+    path('', include('apps.pages.urls')),
+
+)
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+# views to display the corresponding error pages
+handler404 = ErrorPageView.as_view(error_code='404')
+handler403 = ErrorPageView.as_view(error_code='403')
+handler400 = ErrorPageView.as_view(error_code='400')
+handler500 = ErrorPageView.as_view(error_code='500')

@@ -18,3 +18,12 @@ directly because these apps are under apps folder, not directly under site
 files auto generated? How are we deploying them on the server.
 
 5. Is it wise to keep the secret key in the base file?
+
+6. Even after setting the DJANGO_SETTINGS_MODULE in wsgi file it doesn't work
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'settings.settings')
+
+Does it not read wsgi.py file on starting the project
+
+7. url(regex, view, kwargs=None, name=None) This function is an alias to django.urls.re_path(). It’s likely to be deprecated in a future release. Why we are using url()
+
+8. How are static / media roots used and where and how are they deployed in the production
