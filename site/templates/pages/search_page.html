@@ -1,0 +1,30 @@
+{% extends "home_base.html" %}
+{% load i18n %}
+{% load staticfiles %}
+
+{% block content %}
+    <form method="POST" action="">{% csrf_token %}
+        <div class="row">
+            <div col-sm-5>
+                {{form.text}}
+            </div>
+            <div col-sm-3>
+                <input class='btn btn-primary' type="submit" href="{% url 'pages:search' %}" value="Search">
+            </div>
+        </div>
+    </form>
+
+    <div class="row">
+        {% if clothes_list %}
+            {% for clothes in clothes_list %}
+                <div class="col-sm-4">
+                    <a href="{{ clothes.get_absolute_url }}">{{ clothes.name }}</a>
+                    {{clothes.get_clothes_description}}
+                </div>
+            {% endfor %}
+        {% elif search_results %}
+                <p> Oops! Nothing found, please try again.</p>
+        {% endif %}
+    </div>
+
+{% endblock %}

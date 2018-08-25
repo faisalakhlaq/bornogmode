@@ -27,3 +27,10 @@ Does it not read wsgi.py file on starting the project
 7. url(regex, view, kwargs=None, name=None) This function is an alias to django.urls.re_path(). It’s likely to be deprecated in a future release. Why we are using url()
 
 8. How are static / media roots used and where and how are they deployed in the production
+
+9. How the get_absolute_url() is working
+
+10. How is on_delete working in the models. e.g. If I delete the CLothes object what will on_delete do if its value was CASCADE
+
+11. How does slug work
+

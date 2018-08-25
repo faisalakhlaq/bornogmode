@@ -10,13 +10,14 @@
   <!--<link rel="icon" href="favicon.ico">-->
 
   <title>{% block head_title %}{% endblock %}Børn og Mode</title>
-      {% include "pages/home_head_css.html" %}
-
+  {% include "pages/home_head_css.html" %}
 </head>
 
 <body>
 
   {% include "pages/navbar.html" %}
+  {% include "pages/main_search_bar.html" %}
+  {% include "main_menu.html" %}
 
   {% block jumbotron %} {% endblock %}
   <main role="main" class="container">

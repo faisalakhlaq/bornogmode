@@ -2,6 +2,84 @@
     color: rgba(200, 50, 255, 1);
 }
 
+.search_bar_row {
+    position: relative;
+}
+
 h1 {
     color: green;
 }
+
+.logo {
+    width: 50px;
+    position: absolute;
+    top:50%;
+    transform: translateY(-50%);
+}
+
+/* Searchbox relevant style */
+#searchbox {
+  position: relative;
+  background: #F2F2F2;
+  width:100%;
+  margin: 20px auto;
+  overflow: hidden;
+  height: 40px;
+  color: #000;
+}
+  #searchbox.show {
+    height: 40px;
+    width: 100%;
+  }
+
+
+  #searchbox svg {
+    margin: auto 0;
+    position: absolute;
+    height: 25px;
+    fill: #B2AFAF;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+    #searchbox svg.magnify {
+          position: absolute;
+      right: 12px;
+
+      fill: #B2AFAF;
+    }
+
+
+  #searchbox input {
+    width: 100%;
+    font-size: 18px;
+    height: 40px;
+    border: 0;
+    font-weight: 300;
+    color: #333;
+    padding-left: 20px;
+    background: transparent;
+
+}
+
+.menu_cart .shop_cart{
+    width: auto;
+    height:100%;
+
+    display:block;
+    float:right;
+
+
+}
+.menu_cart .shop_cart ul  {
+    width: 160px;
+    display: block;
+    float:left;    line-height: 80px;
+margin: 0;
+}
+.menu_cart .shop_cart ul li {
+    display: inline;
+    font-size: 20px;
+    list-style: none;
+    margin-left: 10px;}
+

@@ -14,3 +14,7 @@ class ContactForm(forms.Form):
         if not email_base or not domain or not extension:
             raise forms.ValidationError("Please provide a valid email")
         return email
+
+
+class SearchForm(forms.Form):
+    text = forms.CharField(max_length=100)

@@ -1,0 +1,40 @@
+{% extends "home_base.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}
+  {% if category %}{{ category.name }}{% else %}Clothes{% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="row">
+  <div class="col-sm-12">
+    <h1>{% if category %}{{ category.name }}{% else %}Clothes{% endif %}</h1>
+  </div>
+  <div id="sidebar" class="col-sm-3">
+    <h3>Categories</h3>
+    <ul>
+      <li {% if not category %}class="selected"{% endif %}>
+        <a href="{% url 'clothes:clothes_list' %}">All</a>
+      </li>
+      {% for c in categories %}
+        <li {% if category.slug == c.slug %}class="selected"{% endif %}>
+          <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+    {% if clothes_list %}
+    {% for clothes in clothes_list %}
+      <div class="item col-sm-3">
+        <a href="{{ clothes.get_absolute_url }}">
+          <img class="img-fluid" src="{% if clothes.image %}{{ clothes.image.url }}{% else %}
+          {% static 'img/no_image.png' %}{% endif %}">
+        </a>
+        <a href="{{ clothes.get_absolute_url }}">{{ clothes.name }}</a><br>
+        ${{ clothes.price }}
+      </div>
+    {% endfor %}
+    {% endif %}
+  </div>
+{% endblock %}

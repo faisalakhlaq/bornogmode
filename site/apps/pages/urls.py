@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views import HomePageView, AboutUsView, ContactFormView, home_files
+from .views import HomePageView, AboutUsView, ContactFormView, SearchTextView, home_files
 
 
 app_name = 'pages'
@@ -20,4 +20,8 @@ urlpatterns += [
     path('about-us/',
          AboutUsView.as_view(),
          name='about_us'),
+    # FIXME we need optional orguments here
+    path('<>/',
+         SearchTextView.as_view(),
+         name='search'),
 ]

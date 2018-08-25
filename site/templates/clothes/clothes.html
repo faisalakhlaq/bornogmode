@@ -18,7 +18,6 @@
 {% if clothes_list %}
     <ul>
         {% for clothes in clothes_list %}
-            <!--<li><a href="/{{clothes.name}}/">{{clothes.name}}</a></li>-->
             <li><a href="{% url 'clothes:clothes_detail' clothes.name %}">{{clothes.name}}</a></li>
         {% endfor %}
     </ul>

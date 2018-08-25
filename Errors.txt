@@ -1,0 +1,4 @@
+1. When we click on one (navbar-toggler collapsed) the other also opens.
+Its the button which appears when we minimize the windows
+2. When we remove the link for ioncons and download and use the file. It doesnt
+show the image of cart

@@ -5,6 +5,7 @@ body {
 
 .navbar-expand-md{
 background-color: #1e78d2 !important;
+margin-bottom: 0 !important;
 }
 
 .navbar-dark .navbar-nav .nav-link {

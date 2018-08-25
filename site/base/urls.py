@@ -16,11 +16,13 @@ urlpatterns = i18n_patterns(
     url(r'^admin/', admin.site.urls),
     url(r'^clothes/', include('apps.clothes.urls')),
     path('', include('apps.pages.urls')),
+    path('products/', include('apps.products.urls', namespace='products')),
 
 )
 
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # views to display the corresponding error pages
 handler404 = ErrorPageView.as_view(error_code='404')

@@ -5,7 +5,6 @@ Base settings for project. It is shared across all the settings.
 import os
 from django.utils.translation import ugettext_lazy as _
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Initialize the root of the whole project
@@ -15,7 +14,7 @@ PROJECT_ROOT = os.path.abspath(os.path.join(
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 't_w4todgix36gw)vp=cjb&_2!-*(ge1b$deke7+t^gvippfxp)'
 
-DEBUG = True
+DEBUG = False
 
 LANGUAGE_CODE = 'en-us'
 LANGUAGES = (
@@ -29,11 +28,15 @@ LOCALE_PATHS = (
 ALLOWED_HOSTS = []
 
 
-# Application definition
 BASE_PROJECT_APPS = [
     'apps.clothes',
     'apps.pages',
+    'apps.utils',
+    'apps.brands',
+    'apps.products'
+
 ]
+# Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -144,11 +147,3 @@ STATIC_ROOT = os.path.join(PROJECT_ROOT, "static_root")
 MEDIA_ROOT = os.path.join(PROJECT_ROOT, "media")
 
 MEDIA_URL = '/media/'
-
-# List of finder classes that know how to find static files in
-# various locations.
-STATICFILES_FINDERS = (
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
-)

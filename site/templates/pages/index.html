@@ -5,9 +5,6 @@
 
 <style>
 {% block style %}
-.navbar-expand-md{
-    margin-bottom: 0px !important;
-}
 .jumbotron {
     background-color : #1e78d2 !important;
     color:white !important;
@@ -26,7 +23,7 @@
                     original position and moves with the rest of the page.
                 </p>
                 <p>
-                    <a class="btn btn-lg btn-primary" href="" role="button">Contact us &raquo;</a>
+                    <a class="btn btn-lg btn-primary" href="{% url 'pages:contact_us' %}" role="button">Contact us &raquo;</a>
                 </p>
             </div>
             <div class="col-sm-6">

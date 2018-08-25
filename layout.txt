@@ -1,0 +1,74 @@
+
+Clothing & Shoes
+Equipment
+Feeding
+Toys
+Furniture
+Sleeping
+Bathing
+Eating
+
+1. KTSBorn(Interface?)
+1. MenuBaseClass (Corresponds to the base class for menu items)
+2. SubMenu (Its a menu item that has many items in it)
+3. MenuItem (Its an individual menu item against which a page will open. MenuItem should extend a MenuBaseClass and can also extend ItemBaseClass)
+
+1. ItemBaseClass
+2. Item
+
+1. ProductBaseClass (Every product is an item and inherits specific properties from Item/ItemBaseClass)
+
+1. ValidateUser(Overrides django.contrib.auth.mixins.LoginRequiredMixin)
+2. KTSBornView(Overrides django.views.generic.base.View)
+
+
+USERS:
+Customer and staff should have a completely different user. Therefore, there is never a chance of collission
+
+1. KTSBaseUser (There can be different types of users. Abstract?. Django.contrib.auth.models.AbstractUser)
+2. AdminUser (AdminUsers can be many with different permissions)
+3. Customer (Customer is also a user with limited permissions)
+3. UserPermissions (create, add, update, delete, canViewReports, canCreateDiscounts,)
+
+
+VIEWS:
+
+1. KTSBornView(Abstract?)
+2. CustomerLogin
+3. MainView
+4. MainMenuView
+5. SubMenuVIew
+6. ProductView
+7. DiscountsMainView
+8. DiscountProductView(Discount view for individual product)
+ADMIN VIEWS
+
+1. AdminView(Abstract?)
+2. AdminLogin
+3. Create, Add, Update, Delete AdminView
+4. Create, Add, Update, Delete DiscountView
+5. ReportView(Abstract?)
+6. SalesReportView (implements ReportView)
+
+
+DATABASE:
+1. Item (ID(auto), name, colour)
+2. Catagory(ID(auto), name)
+3. Product(ID(auto), category(foreign_key), item(foreign_key), price, quantity) (Product should just be a product, quantity should come in another table MAYBE stock)
+4. ProductDescription(ID(auto), product(foreign_key), colour, size, age_range(e.g. this item suits children from 2 to 4 years), dimention)
+5. Discounts(ID(auto), Product(foreign_key), date_from, date_to, discount_price)
+6. Address(ID(auto), title, first_name, last_name, email, telephone, mobile, company_name, street, street_2, postcode, country)
+7. AdminUser(ID(auto), user_name, password, Address(foreignKey), ID(NIC, CPR or P-No))
+8. Brand(name, company_name, Address(foreign_key))
+
+
+DATABASE_TEMP:
+
+clothes(name, size, age_group, colour, price, brand, season(these clothes are for which season), category (e.g sleeping dress, swimming dress, shirts, tops, bottoms))
+
+
+Admin site user
+
+Username: admin
+Email address: sardarfaisalpasha@gmail.com
+Password: bornogmodeDBpassword
