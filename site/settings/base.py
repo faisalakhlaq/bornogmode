@@ -33,8 +33,9 @@ BASE_PROJECT_APPS = [
     'apps.pages',
     'apps.utils',
     'apps.brands',
-    'apps.products'
-
+    'apps.products',
+    'apps.cart',
+    'apps.childcarts'
 ]
 # Application definition
 
@@ -143,7 +144,6 @@ STATICFILES_DIRS = (
 )
 
 STATIC_ROOT = os.path.join(PROJECT_ROOT, "static_root")
-
 MEDIA_ROOT = os.path.join(PROJECT_ROOT, "media")
-
 MEDIA_URL = '/media/'
+CART_SESSION_ID = 'cart'

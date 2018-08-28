@@ -13,7 +13,8 @@ def product_list(request, id=None, slug=None, parent_slug=None):
         # TODO if a category if deleted and the product still has
         # this category then we will get into problem here
         # category = get_object_or_404(Category, slug=category_slug)
-        category = Category.objects.filter(slug=slug, parent_category__slug=parent_slug)
+        category = Category.objects.filter(slug=slug,
+                                           parent_category__slug=parent_slug)
     # elif slug:
     #         category = Category.objects.filter(slug=slug)
 

@@ -1,0 +1,39 @@
+{% extends "home_base.html" %}
+{% load static %}
+
+{% block title %}
+  {% if category %}{{ category.name }}{% else %}Child Carts{% endif %}
+{% endblock %}
+
+{% block content %}
+<div class="row">
+  <div class="col-sm-12">
+    <h1>{% if category %}{{ category.name }}{% else %}Child Carts{% endif %}</h1>
+  </div>
+  <div id="sidebar" class="col-sm-3">
+    <h3>Categories</h3>
+    <ul>
+      <li {% if not category %}class="selected"{% endif %}>
+        <a href="{% url 'childcarts:childcart_list' %}">All</a>
+      </li>
+      {% for c in categories %}
+        <li {% if category.slug == c.slug %}class="selected"{% endif %}>
+          <a href="{% url 'childcarts:childcart_category' c.name %}">{{ c.name }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+  {% if childcart_list %}
+  {% for cart in childcart_list %}
+    <div class="item col-sm-3">
+      <a href="{{ cart.get_absolute_url }}">
+        <img class="img-fluid" src="{% if cart.image %}{{ cart.image.url }}{% else %}
+        {% static 'img/no_image.png' %}{% endif %}">
+      </a>
+      <a href="{% url 'childcarts:childcart_detail' cart.id cart.slug %}">{{ cart.name }}</a><br>
+      ${{ cart.price }}
+    </div>
+  {% endfor %}
+  {% endif %}
+</div>
+{% endblock %}

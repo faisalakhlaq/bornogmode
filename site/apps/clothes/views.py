@@ -4,7 +4,7 @@ from django.http import Http404
 from django.views.generic import View, ListView, DetailView
 
 from .models import Clothes
-
+from apps.products.models import Category
 
 class IndexView(View):
     def get(self, request, *args, **kwargs):
@@ -48,6 +48,7 @@ class ClothesListView(ListView):
         # return render(request, 'blog/post/list.html', {'page': page, 'posts': posts})
         # paginate_by =3
         context = {
+            'categories': Category.objects.all(),
             'page': request.GET.get('page'),
             'clothes_list': clothes_list,
         }

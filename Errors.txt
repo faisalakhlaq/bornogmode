@@ -2,3 +2,10 @@
 Its the button which appears when we minimize the windows
 2. When we remove the link for ioncons and download and use the file. It doesnt
 show the image of cart
+3. Appropriate views should be displayed when clicking on a specific category
+e.g. If a category is clicked while on clothes page then clothes according to that
+category should be displayed.
+4. Search is not working
+5. When I write name in category, slug it is auto filled. Not in other Models, why
+6. Make a mechanism that we use only the products.detail.html and
+products.list.html view for all products.

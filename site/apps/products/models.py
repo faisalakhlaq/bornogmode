@@ -1,6 +1,8 @@
 from django.db import models
 from django.urls import reverse
 
+from apps.brands.models import Brand
+
 
 class Category(models.Model):
     name = models.CharField(max_length=200,
@@ -36,14 +38,13 @@ class Category(models.Model):
         # while p:
         #     all_slugs.append(p.slug)
         #     p = p.parent_category
+        # FIXME: If this is called from products/clothes/toys
+        # TODO: etc view then return corresponding results
         return reverse('products:product_list_by_category',
                        args=[self.id, self.slug])
 
 
 class Product(models.Model):
-    category = models.ForeignKey(Category,
-                                 related_name='products',
-                                 on_delete=models.CASCADE)
     name = models.CharField(max_length=200, db_index=True)
     slug = models.SlugField(max_length=200, db_index=True)
     image = models.ImageField(upload_to='products/%Y/%m/%d',
@@ -53,6 +54,15 @@ class Product(models.Model):
     available = models.BooleanField(default=True)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
+    category = models.ForeignKey(Category,
+                                 related_name='products',
+                                 null=True,
+                                 on_delete=models.SET_NULL)
+    brand = models.ForeignKey(Brand,
+                              blank=True,
+                              null=True,
+                              related_name='products',
+                              on_delete=models.SET_NULL,)
 
     class Meta:
         ordering = ('name',)

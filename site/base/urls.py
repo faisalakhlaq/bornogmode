@@ -1,6 +1,6 @@
 """site URL Configuration"""
 
-from django.conf.urls import include, url, handler404, \
+from django.conf.urls import include, handler404, \
     handler500, handler403, handler400
 from django.urls import path
 from django.conf import settings
@@ -13,11 +13,11 @@ from apps.pages.views import ErrorPageView
 
 
 urlpatterns = i18n_patterns(
-    url(r'^admin/', admin.site.urls),
-    url(r'^clothes/', include('apps.clothes.urls')),
-    path('', include('apps.pages.urls')),
+    path('admin/', admin.site.urls),
+    path('clothes/', include('apps.clothes.urls')),
     path('products/', include('apps.products.urls', namespace='products')),
-
+    path('childcarts/', include('apps.childcarts.urls', namespace='childcarts')),
+    path('', include('apps.pages.urls')),
 )
 
 if settings.DEBUG:
